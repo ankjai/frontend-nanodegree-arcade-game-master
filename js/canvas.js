@@ -1,13 +1,13 @@
 var c = document.querySelector("#canvas");
 var ctx = c.getContext("2d");
 
-function draw(src, x, y) {
+function draw(src, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight) {
     // body...
     var image = new Image();
     image.src = src;
     image.onload = function() {
         // body...
-        ctx.drawImage(image, (x * 101), (y * 171));
+        ctx.drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight);
     }
 }
 
@@ -16,17 +16,24 @@ function drawGameScreen() {
     var grassSrc = "images/grass-block.png";
     var stoneSrc = "images/stone-block.png";
     var waterSrc = "images/water-block.png";
-    for (var x = 0; x < 6; x++) {
-        for (var y = 0; y < 7; y++) {
+
+    var sx = 0;
+    var sy = 51;
+    var sWidth = 101;
+    var sHeight = 80;
+    var dWidth = 101;
+    var dHeight = 80;
+    for (var dx = 0; dx < 6; dx++) {
+        for (var dy = 0; dy < 7; dy++) {
             var src = "";
-            if (y == 0) {
+            if (dy == 0) {
                 src = waterSrc;
-            } else if (y == 1 || y < 4) {
+            } else if (dy == 1 || dy < 4) {
                 src = stoneSrc;
-            } else if (y == 4 || y < 7) {
+            } else if (dy == 4 || dy < 7) {
                 src = grassSrc;
             };
-            draw(src, x, y);
+            draw(src, sx, sy, sWidth, sHeight, (dx * 101), (dy * 80), dWidth, dHeight);
         }
     }
 }
