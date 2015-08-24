@@ -27,15 +27,19 @@ function drawGameScreen() {
         for (var dy = 0; dy < 7; dy++) {
             var src = "";
             if (dy == 0) {
+                dHeight = 80;
                 sHeight = 80;
                 src = waterSrc;
             } else if (dy == 1 || dy < 4) {
+                dHeight = 80;
                 sHeight = 80;
                 src = stoneSrc;
             } else if (dy == 4 || dy < 6) {
+                dHeight = 80;
                 sHeight = 80;
                 src = grassSrc;
             } else if (dy == 6) {
+                dHeight = 120;
                 sHeight = 120;
                 src = grassSrc;
             };
