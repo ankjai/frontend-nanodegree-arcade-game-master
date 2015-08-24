@@ -55,10 +55,6 @@ function drawGameScreen(ctx) {
             } else if (dy >= 4) {
                 ctx.drawImage(grass, (dx * 101), (dy * 80));
             };
-            // gameScreen.onload = function() {
-            //     // body...
-            //     ctx.drawImage(gameScreen, (dx * 101), (dy * 80));
-            // }
         }
     }
 }
