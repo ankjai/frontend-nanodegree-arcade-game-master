@@ -19,7 +19,7 @@ Enemy.prototype.update = function(dt) {
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
     console.log("Enemy.render()");
-    // ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
 
 // Now write your own player class
@@ -52,7 +52,6 @@ Player.prototype.handleInput = function() {
 var allEnemies = [];
 
 var enOne = new Enemy();
-enOne.render();
 
 allEnemies.push(enOne);
 
