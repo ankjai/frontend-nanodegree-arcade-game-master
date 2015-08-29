@@ -18,18 +18,45 @@ Enemy.prototype.update = function(dt) {
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    console.log("Enemy.render()");
+    // ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
 
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
+var Player = function() {
+    // body...
+    this.sprite = 'images/char-boy.png';
+}
+
+Player.prototype.update = function() {
+    // body...
+    console.log("Player.update()");
+}
+
+Player.prototype.render = function() {
+    // body...
+    console.log("Player.render()");
+}
+
+Player.prototype.handleInput = function() {
+    // body...
+    console.log("Player.handleInput()");
+}
 
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
+var allEnemies = [];
 
+var enOne = new Enemy();
+enOne.render();
+
+allEnemies.push(enOne);
+
+var player = new Player();
 
 
 // This listens for key presses and sends the keys to your
