@@ -1,5 +1,5 @@
 // Enemies our player must avoid
-var Enemy = function(row) {
+var Enemy = function(row, speedFactor) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
@@ -11,6 +11,9 @@ var Enemy = function(row) {
     this.x = -100;
     // row where we want to place the enemy
     this.y = (row * 83) - 23;
+
+    // set speedFactor
+    this.speedFactor = speedFactor;
 }
 
 // Update the enemy's position, required method for game
@@ -20,12 +23,12 @@ Enemy.prototype.update = function(dt) {
     // which will ensure the game runs at the same speed for
     // all computers.
     var x = this.x;
-    if (x == 505) {
+    if (x > 505) {
         console.warn("x is 505: " + this.x);
         this.x = -100;
         console.log("resetting this.x: " + this.x);
     } else {
-        this.x = x + 1;
+        this.x = x + this.speedFactor;
         console.log("updating this.x: " + this.x);
     };
 }
@@ -64,18 +67,18 @@ Player.prototype.handleInput = function() {
 // Place the player object in a variable called player
 var allEnemies = [];
 
-function createEnemies(delay, row) {
+function createEnemies(delay, row, speedFactor) {
     // body...
     setTimeout(function() {
         // body...
-        allEnemies.push(new Enemy(row));
+        allEnemies.push(new Enemy(row, speedFactor));
     }, delay);
 }
 
-createEnemies(0, 1);
-createEnemies(2000, 2);
-createEnemies(4000, 3);
-createEnemies(6000, 1);
+createEnemies(0, 1, 1);
+createEnemies(2000, 2, 2);
+createEnemies(4000, 3, 1);
+createEnemies(6000, 1, 6);
 
 var player = new Player();
 
