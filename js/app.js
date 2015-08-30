@@ -1,11 +1,16 @@
 // Enemies our player must avoid
-var Enemy = function() {
+var Enemy = function(row) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
+
+    // column will always be first
+    this.x = -10;
+    // row where we want to place the enemy
+    this.y = (row * 83) - 23;
 }
 
 // Update the enemy's position, required method for game
@@ -51,9 +56,23 @@ Player.prototype.handleInput = function() {
 // Place the player object in a variable called player
 var allEnemies = [];
 
-var enOne = new Enemy();
-
+var enOne = new Enemy(1);
+console.log("enOne x: " + enOne.x);
+console.log("enOne y: " + enOne.y);
+console.log("enOne image: " + enOne.sprite);
 allEnemies.push(enOne);
+
+var enTwo = new Enemy(2);
+console.log("enOne x: " + enTwo.x);
+console.log("enOne y: " + enTwo.y);
+console.log("enOne image: " + enTwo.sprite);
+allEnemies.push(enTwo);
+
+var enThree = new Enemy(3);
+console.log("enOne x: " + enThree.x);
+console.log("enOne y: " + enThree.y);
+console.log("enOne image: " + enThree.sprite);
+allEnemies.push(enThree);
 
 var player = new Player();
 
