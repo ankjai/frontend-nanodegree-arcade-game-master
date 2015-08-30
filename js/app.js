@@ -64,23 +64,18 @@ Player.prototype.handleInput = function() {
 // Place the player object in a variable called player
 var allEnemies = [];
 
-var enOne = new Enemy(1);
-console.log("enOne x: " + enOne.x);
-console.log("enOne y: " + enOne.y);
-console.log("enOne image: " + enOne.sprite);
-allEnemies.push(enOne);
+function createEnemies(delay, row) {
+    // body...
+    setTimeout(function() {
+        // body...
+        allEnemies.push(new Enemy(row));
+    }, delay);
+}
 
-var enTwo = new Enemy(2);
-console.log("enOne x: " + enTwo.x);
-console.log("enOne y: " + enTwo.y);
-console.log("enOne image: " + enTwo.sprite);
-allEnemies.push(enTwo);
-
-var enThree = new Enemy(3);
-console.log("enOne x: " + enThree.x);
-console.log("enOne y: " + enThree.y);
-console.log("enOne image: " + enThree.sprite);
-allEnemies.push(enThree);
+createEnemies(0, 1);
+createEnemies(2000, 2);
+createEnemies(4000, 3);
+createEnemies(6000, 1);
 
 var player = new Player();
 
