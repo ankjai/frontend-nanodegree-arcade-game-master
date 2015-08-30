@@ -8,7 +8,7 @@ var Enemy = function(row) {
     this.sprite = 'images/enemy-bug.png';
 
     // column will always be first
-    this.x = -10;
+    this.x = -100;
     // row where we want to place the enemy
     this.y = (row * 83) - 23;
 }
@@ -19,11 +19,19 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
+    var x = this.x;
+    if (x == 505) {
+        console.warn("x is 505: " + this.x);
+        this.x = -100;
+        console.log("resetting this.x: " + this.x);
+    } else {
+        this.x = x + 1;
+        console.log("updating this.x: " + this.x);
+    };
 }
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
-    console.log("Enemy.render()");
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
 
