@@ -101,11 +101,12 @@ var Engine = (function(global) {
     function checkCollisions() {
         // body...
         allEnemies.forEach(function(enemy) {
-            // enemy.update(dt);
-            console.log("enemy coordinate: " + enemy.x + " " + enemy.y);
-            console.log("player coordinate: " + player.x + " " + player.y);
-            if (((enemy.x + 75) == player.x) && (enemy.y == player.y)) {
+            var nRange = enemy.x - 50;
+            var pRange = enemy.x + 50;
+            if ((player.x > nRange && player.x < pRange) && (enemy.y == player.y)) {
                 console.log("BOOM!!!");
+                console.log("enemy coordinate: " + enemy.x + " " + enemy.y);
+                console.log("player coordinate: " + player.x + " " + player.y);
                 player.x = player.xResetPt;
                 player.y = player.yResetPt;
             };
