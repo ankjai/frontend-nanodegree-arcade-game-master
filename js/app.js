@@ -45,11 +45,17 @@ var Player = function() {
     // body...
     this.sprite = 'images/char-boy.png';
 
+    // x reset pt
+    var xResetPt = 2 * 101;
+
+    // y reset pt
+    var yResetPt = (5 * 83) - 23;
+
     // column will always be first
-    this.x = 2 * 101;
+    this.x = xResetPt;
 
     // row where we want to place the enemy
-    this.y = (5 * 83) - 35;
+    this.y = yResetPt;
 }
 
 Player.prototype.update = function() {
@@ -67,20 +73,20 @@ Player.prototype.handleInput = function(allowedKeys) {
     // body...
     console.log("Player.handleInput() key pressed: " + allowedKeys);
     if (allowedKeys == "up") {
-        if (this.y > 130) {
+        if (this.y > 142) {
             console.log("before key y: " + this.y);
             this.y = this.y - 83;
             console.log("after key y: " + this.y);
-        } else if (this.y == 48) {
+        } else if (this.y == 60) {
             console.log("before key y: " + this.y);
             this.x = 2 * 101;
-            this.y = (5 * 83) - 35;
+            this.y = (5 * 83) - 23;
             console.log("after key y: " + this.y);
         };;
     };
 
     if (allowedKeys == "down") {
-        if (this.y < 298) {
+        if (this.y < 310) {
             console.log("before key y: " + this.y);
             this.y = this.y + 83;
             console.log("after key y: " + this.y);
@@ -121,7 +127,7 @@ function createEnemies(delay, row, speedFactor) {
 createEnemies(0, 1, 1);
 createEnemies(2000, 2, 2);
 createEnemies(4000, 3, 1);
-createEnemies(6000, 1, 6);
+createEnemies(6000, 1, 3);
 
 var player = new Player();
 
