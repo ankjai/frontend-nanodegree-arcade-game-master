@@ -12,8 +12,9 @@ var Enemy = function(row, speedFactor) {
     // row where we want to place the enemy
     this.y = (row * 83) - 23;
 
-    // set speedFactor
-    this.speedFactor = speedFactor;
+    // set speedFactor time 100 
+    // as dt comes out to 0.018 approx
+    this.speedFactor = speedFactor * 100;
 }
 
 // Update the enemy's position, required method for game
@@ -26,7 +27,7 @@ Enemy.prototype.update = function(dt) {
     if (x > 505) {
         this.x = -100;
     } else {
-        this.x = x + this.speedFactor;
+        this.x = x + (dt * this.speedFactor);
     };
 }
 
@@ -72,7 +73,7 @@ Player.prototype.handleInput = function(allowedKeys) {
         } else if (this.y == 60) {
             this.x = this.xResetPt;
             this.y = this.yResetPt;
-        };;
+        };
     };
 
     if (allowedKeys == "down") {
@@ -100,18 +101,19 @@ Player.prototype.handleInput = function(allowedKeys) {
 // Place the player object in a variable called player
 var allEnemies = [];
 
-function createEnemies(delay, row, speedFactor) {
+function createEnemies(delaySec, row, speedFactor) {
     // body...
+    // convert secs to milli seconds
     setTimeout(function() {
         // body...
         allEnemies.push(new Enemy(row, speedFactor));
-    }, delay);
+    }, (delaySec * 1000));
 }
 
 createEnemies(0, 1, 1);
-createEnemies(2000, 2, 2);
-createEnemies(4000, 3, 1);
-createEnemies(6000, 1, 3);
+createEnemies(2, 2, 2);
+createEnemies(4, 3, 1);
+createEnemies(6, 1, 3);
 
 var player = new Player();
 
