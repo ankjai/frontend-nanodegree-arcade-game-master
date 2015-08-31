@@ -106,8 +106,8 @@ var Engine = (function(global) {
             console.log("player coordinate: " + player.x + " " + player.y);
             if (((enemy.x + 75) == player.x) && (enemy.y == player.y)) {
                 console.log("BOOM!!!");
-                player.x = 2 * 101;
-                player.y = (5 * 83) - 23;
+                player.x = player.xResetPt;
+                player.y = player.yResetPt;
             };
         });
     }

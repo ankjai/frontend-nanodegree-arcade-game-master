@@ -46,16 +46,16 @@ var Player = function() {
     this.sprite = 'images/char-boy.png';
 
     // x reset pt
-    var xResetPt = 2 * 101;
+    this.xResetPt = 2 * 101;
 
     // y reset pt
-    var yResetPt = (5 * 83) - 23;
+    this.yResetPt = (5 * 83) - 23;
 
     // column will always be first
-    this.x = xResetPt;
+    this.x = this.xResetPt;
 
     // row where we want to place the enemy
-    this.y = yResetPt;
+    this.y = this.yResetPt;
 }
 
 Player.prototype.update = function() {
@@ -79,8 +79,8 @@ Player.prototype.handleInput = function(allowedKeys) {
             console.log("after key y: " + this.y);
         } else if (this.y == 60) {
             console.log("before key y: " + this.y);
-            this.x = 2 * 101;
-            this.y = (5 * 83) - 23;
+            this.x = this.xResetPt;
+            this.y = this.yResetPt;
             console.log("after key y: " + this.y);
         };;
     };
