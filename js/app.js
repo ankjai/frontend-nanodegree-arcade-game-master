@@ -24,12 +24,9 @@ Enemy.prototype.update = function(dt) {
     // all computers.
     var x = this.x;
     if (x > 505) {
-        console.warn("x is 505: " + this.x);
         this.x = -100;
-        console.log("resetting this.x: " + this.x);
     } else {
         this.x = x + this.speedFactor;
-        console.log("updating this.x: " + this.x);
     };
 }
 
@@ -60,52 +57,39 @@ var Player = function() {
 
 Player.prototype.update = function() {
     // body...
-    console.log("Player.update()");
 }
 
 Player.prototype.render = function() {
     // body...
-    console.log("Player.render()");
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
 
 Player.prototype.handleInput = function(allowedKeys) {
     // body...
-    console.log("Player.handleInput() key pressed: " + allowedKeys);
     if (allowedKeys == "up") {
         if (this.y > 142) {
-            console.log("before key y: " + this.y);
             this.y = this.y - 83;
-            console.log("after key y: " + this.y);
         } else if (this.y == 60) {
-            console.log("before key y: " + this.y);
             this.x = this.xResetPt;
             this.y = this.yResetPt;
-            console.log("after key y: " + this.y);
         };;
     };
 
     if (allowedKeys == "down") {
         if (this.y < 310) {
-            console.log("before key y: " + this.y);
             this.y = this.y + 83;
-            console.log("after key y: " + this.y);
         };
     };
 
     if (allowedKeys == "left") {
         if (this.x > 100) {
-            console.log("before key x: " + this.x);
             this.x = this.x - 101;
-            console.log("after key x: " + this.x);
         };
     };
 
     if (allowedKeys == "right") {
         if (this.x < 304) {
-            console.log("before key x: " + this.x);
             this.x = this.x + 101;
-            console.log("after key x: " + this.x);
         };
     };
 }
@@ -141,9 +125,6 @@ document.addEventListener('keyup', function(e) {
         39: 'right',
         40: 'down'
     };
-
-    console.log("key" + e.keyCode);
-    console.log("allowedKeys key" + allowedKeys[e.keyCode]);
 
     player.handleInput(allowedKeys[e.keyCode]);
 });

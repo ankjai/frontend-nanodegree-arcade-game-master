@@ -104,9 +104,6 @@ var Engine = (function(global) {
             var nRange = enemy.x - 50;
             var pRange = enemy.x + 50;
             if ((player.x > nRange && player.x < pRange) && (enemy.y == player.y)) {
-                console.log("BOOM!!!");
-                console.log("enemy coordinate: " + enemy.x + " " + enemy.y);
-                console.log("player coordinate: " + player.x + " " + player.y);
                 player.x = player.xResetPt;
                 player.y = player.yResetPt;
             };
