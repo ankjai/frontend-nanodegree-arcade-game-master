@@ -41,7 +41,8 @@ Enemy.prototype.render = function() {
 // a handleInput() method.
 var Player = function() {
     // body...
-    this.sprite = 'images/char-boy.png';
+    // set player sprite in player.update(sprite)
+    this.sprite = null;
 
     // x reset pt
     this.xResetPt = 2 * 101;
@@ -56,13 +57,17 @@ var Player = function() {
     this.y = this.yResetPt;
 }
 
-Player.prototype.update = function() {
-    // body...
+Player.prototype.update = function(sprite) {
+    // the sprite value is selected from modal
+    this.sprite = sprite;
 }
 
 Player.prototype.render = function() {
-    // body...
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    // do not render player unless player
+    // is selected from modal
+    if (this.sprite != null) {
+        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    }
 }
 
 Player.prototype.handleInput = function(allowedKeys) {
@@ -101,20 +106,26 @@ Player.prototype.handleInput = function(allowedKeys) {
 // Place the player object in a variable called player
 var allEnemies = [];
 
+/**
+ * function to help create enemy objs
+ * @param  {[int]} delaySec    [delay in creating this enemy obj]
+ * @param  {[int]} row         [which row you want to create]
+ * @param  {[int]} speedFactor [rate at which you want enemy obj to move]
+ */
 function createEnemies(delaySec, row, speedFactor) {
-    // body...
     // convert secs to milli seconds
     setTimeout(function() {
-        // body...
         allEnemies.push(new Enemy(row, speedFactor));
     }, (delaySec * 1000));
 }
 
+// instantiate game's enemy objs
 createEnemies(0, 1, 1);
 createEnemies(2, 2, 2);
 createEnemies(4, 3, 1);
 createEnemies(6, 1, 3);
 
+// instantiate player object
 var player = new Player();
 
 

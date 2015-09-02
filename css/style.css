@@ -2,3 +2,24 @@ body {
     /*border: solid red 1px !important;*/
     text-align: center;
 }
+
+.modal-body {
+    /*border: solid red 1px !important;*/
+    display: flex;
+}
+
+.sprite {
+    /*border: solid red 1px !important;*/
+    margin: auto;
+    width: 50%;
+}
+
+#boy {
+    margin-right: 10px;
+    background: #ADD8E6;
+}
+
+#girl {
+    margin-left: 10px;
+    background: #FFB6C1;
+}
