@@ -20,11 +20,15 @@
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Choose Player</h4>
+                    <h4 class="modal-title">Select Player</h4>
                 </div>
                 <div class="modal-body">
-                    <img src="images/char-boy.png" onclick="player.update('images/char-boy.png')" data-dismiss="modal">
-                    <img src="images/char-horn-girl.png" onclick="player.update('images/char-horn-girl.png')" data-dismiss="modal">
+                    <div id="boy" class="sprite" onclick="player.update('images/char-boy.png')" data-dismiss="modal">
+                        <img src="images/char-boy.png">
+                    </div>
+                    <div id="girl" class="sprite" onclick="player.update('images/char-horn-girl.png')" data-dismiss="modal">
+                        <img src="images/char-horn-girl.png">
+                    </div>
                 </div>
             </div>
         </div>

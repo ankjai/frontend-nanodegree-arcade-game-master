@@ -98,7 +98,6 @@ var Engine = (function(global) {
 
     // collisions
     function checkCollisions() {
-        // body...
         allEnemies.forEach(function(enemy) {
             var nRange = enemy.x - 50;
             var pRange = enemy.x + 50;
@@ -172,7 +171,7 @@ var Engine = (function(global) {
      * those sorts of things. It's only called once by the init() method.
      */
     function reset() {
-        // invoke modal on init page load
+        // invoke 'select player' modal on page load
         $(win).load(function() {
             $('#myModal').modal('show');
         });
