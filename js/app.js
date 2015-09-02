@@ -41,7 +41,8 @@ Enemy.prototype.render = function() {
 // a handleInput() method.
 var Player = function() {
     // body...
-    this.sprite = 'images/char-boy.png';
+    // set player sprite in player.update(sprite)
+    this.sprite = null;
 
     // x reset pt
     this.xResetPt = 2 * 101;
@@ -56,13 +57,16 @@ var Player = function() {
     this.y = this.yResetPt;
 }
 
-Player.prototype.update = function() {
+Player.prototype.update = function(sprite) {
     // body...
+    this.sprite = sprite;
 }
 
 Player.prototype.render = function() {
     // body...
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    if (this.sprite != null) {
+        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    }
 }
 
 Player.prototype.handleInput = function(allowedKeys) {
