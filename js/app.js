@@ -71,32 +71,24 @@ Player.prototype.render = function() {
 }
 
 Player.prototype.handleInput = function(allowedKeys) {
-    // body...
-    if (allowedKeys == "up") {
-        if (this.y > 142) {
-            this.y = this.y - 83;
-        } else if (this.y == 60) {
-            this.x = this.xResetPt;
-            this.y = this.yResetPt;
-        };
+    // move player by detecting the key event
+    if (allowedKeys == "up" && this.y > 142) {
+        this.y = this.y - 83;
+    } else if (allowedKeys == "up" && this.y == 60) {
+        this.x = this.xResetPt;
+        this.y = this.yResetPt;
     };
 
-    if (allowedKeys == "down") {
-        if (this.y < 310) {
-            this.y = this.y + 83;
-        };
+    if (allowedKeys == "down" && this.y < 310) {
+        this.y = this.y + 83;
     };
 
-    if (allowedKeys == "left") {
-        if (this.x > 100) {
-            this.x = this.x - 101;
-        };
+    if (allowedKeys == "left" && this.x > 100) {
+        this.x = this.x - 101;
     };
 
-    if (allowedKeys == "right") {
-        if (this.x < 304) {
-            this.x = this.x + 101;
-        };
+    if (allowedKeys == "right" && this.x < 304) {
+        this.x = this.x + 101;
     };
 }
 
