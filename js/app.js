@@ -40,8 +40,8 @@ Enemy.prototype.render = function() {
 // This class requires an update(), render() and
 // a handleInput() method.
 var Player = function() {
-    // body...
     // set player sprite in player.update(sprite)
+    // by selecting player img on the 'Select Player' modal
     this.sprite = null;
 
     // x reset pt
@@ -105,6 +105,7 @@ var allEnemies = [];
  * @param  {[int]} speedFactor [rate at which you want enemy obj to move]
  */
 function createEnemies(delaySec, row, speedFactor) {
+    // setTimeout() used to introduce delay in enemy creation
     // convert secs to milli seconds
     setTimeout(function() {
         allEnemies.push(new Enemy(row, speedFactor));
